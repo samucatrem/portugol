@@ -1,0 +1,29 @@
+programa {
+
+  inclua biblioteca Util
+  inteiro n, contador = 0
+  funcao inicio() 
+    {
+      para(n = 1; n  <=200; n++)
+    {
+      se (contador == 1)
+      {
+        escreva("PIM, ")
+        contador = 0
+      }
+      senao
+      {
+         se(n < 20)
+         {
+          escreva(n, ", ")
+         }
+         senao
+         {
+          escreva(n, ". ")
+         }
+         contador+++
+         }
+     Util.aguarde(1000)
+  }
+  }
+}
