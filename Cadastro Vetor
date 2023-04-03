@@ -35,8 +35,7 @@ programa
       quant++
 
       limpa()
-       //Exibe mensagem de usuario cadastrado com sucesso
-      escreva("AVISO: Usuário cadastrado com sucesso!")
+      escreva("Registro cadastrado com sucesso")
       Util.aguarde(3000)
 
       //Retorna para o menu inicio 
@@ -47,17 +46,19 @@ programa
       caso "2":
       {
       limpa()
-      limpa()
       escreva(".**************************************.\n")
       escreva("|          CLIENTES CADASTRO           |\n")
       escreva("'**************************************'\n")
 
-      escreva("N  01 - ", nome_cliente, " - Idade: ", idade, "\n")
+  para(n = 0; n < quant; n++)
+  {
+    escreva("N: ", n+1, " - ",nome_completo[n], " - idade: ", idade[n], "\n")
+  }
 
-      escreva("*****************************")
+      escreva("*****************************\n\n")
       Util.aguarde(5000) //Aguarde 05 segundos
       inicio()
-
+       quant++
         pare  
 
      caso "3":
@@ -84,7 +85,6 @@ programa
 
       limpa()
       escreva("Até a proxima!!! \n\n\n")
-
 }
 
     }
