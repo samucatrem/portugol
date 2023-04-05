@@ -34,7 +34,7 @@ programa
       leia(idade[quant])
        
       quant++
-https://forms.gle/Qmyaxszs5moF1DTX9
+
       limpa()
        //Exibe mensagem de usuario cadastrado com sucesso
       escreva("AVISO: Usuário cadastrado com sucesso!")
@@ -65,8 +65,28 @@ https://forms.gle/Qmyaxszs5moF1DTX9
          quant++
         pare  
 
+
+      caso 3:
+      {
+
+        limpa()
+        se(o nome do cliente == "Samuel")
+        {
+          escreva("Meu nome é Samuel!")
+        }
+        senao
+        {
+          escreva("O nome nao foi reconhecido!")
+        }
+
+
+
+
+      pare
+
       }
-     caso 3 :
+      }
+     caso 4 :
      {
       limpa()
       escreva("Saindo do sistema em 05 segundos . . , ")
