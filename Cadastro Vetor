@@ -10,9 +10,10 @@ programa
   {
    limpa()
    escreva(".-------------------------------------------.\n")
-   escreva("|             MENU GERAL                    |\n")
+   escreva("|               MENU GERAL                  |\n")
    escreva("'-------------------------------------------'\n")
-   
+
+   escreva("--------------------------------------------\n")
    escreva(" 1 - Cadastrar novo cliente\n")
    escreva(" 2 - Visualizar clientes cadastrados\n")
    escreva(" 3 - Sair do sistema\n")
@@ -22,7 +23,7 @@ programa
 
    escolha(opcao)
    {
-     caso "1":
+     caso 1:
      {
        limpa()
        escreva("Informe o nome do cliente:\n")
@@ -33,9 +34,10 @@ programa
       leia(idade[quant])
        
       quant++
-
+https://forms.gle/Qmyaxszs5moF1DTX9
       limpa()
-      escreva("Registro cadastrado com sucesso")
+       //Exibe mensagem de usuario cadastrado com sucesso
+      escreva("AVISO: Usuário cadastrado com sucesso!")
       Util.aguarde(3000)
 
       //Retorna para o menu inicio 
@@ -43,25 +45,28 @@ programa
       pare
        }
     
-      caso "2":
+      caso 2:
       {
+      limpa()
       limpa()
       escreva(".**************************************.\n")
       escreva("|          CLIENTES CADASTRO           |\n")
       escreva("'**************************************'\n")
 
-  para(n = 0; n < quant; n++)
-  {
-    escreva("N: ", n+1, " - ",nome_completo[n], " - idade: ", idade[n], "\n")
-  }
+      para(n = 0; n < quant; n++)
 
-      escreva("*****************************\n\n")
-      Util.aguarde(5000) //Aguarde 05 segundos
+      {
+         escreva("N - : ",n+1, " - ", nome_completo[n], " - Idade: ", idade[n], "\n")
+      }
+
+      escreva("*****************************")
+      Util.aguarde(3000) //Aguarde 03 segundos
       inicio()
-       quant++
+         quant++
         pare  
 
-     caso "3":
+      }
+     caso 3 :
      {
       limpa()
       escreva("Saindo do sistema em 05 segundos . . , ")
@@ -82,14 +87,12 @@ programa
       limpa()
       escreva("Saindo do sistema em 01 segundos . . , ")
       Util.aguarde(800) 
-
+      quant++
       limpa()
       escreva("Até a proxima!!! \n\n\n")
+      
 }
 
     }
-  }
-}
-
   }
 }
