@@ -1,118 +1,135 @@
-programa 
-  {
-  inclua biblioteca Util 
-  
-  inteiro opcao, idade[8], quant = 0, n
-  cadeia nome_completo[8]
-  
+programa {
+
+  inclua biblioteca Util
+  inclua biblioteca Texto
+
+     inteiro opcao, idade[8], quant = 0, n, achei = 0
+     cadeia nome_cliente[8], termo
 
   funcao inicio() 
   {
-   limpa()
-   escreva(".-------------------------------------------.\n")
-   escreva("|               MENU GERAL                  |\n")
-   escreva("'-------------------------------------------'\n")
+    limpa()
+    escreva(".******************************************.\n")
+    escreva("|            SISTEMA DE CADASTRO           |\n")
+    escreva(".******************************************.\n")
 
-   escreva("--------------------------------------------\n")
-   escreva(" 1 - Cadastrar novo cliente\n")
-   escreva(" 2 - Visualizar clientes cadastrados\n")
-   escreva(" 3 - Sair do sistema\n")
-   escreva("--------------------------------------------\n")
-   escreva("Opção desejada: ")
-   leia(opcao)
+    escreva(" 1 - Cadastrar no cliente\n")
+    escreva(" 2 - Visualizar clientes cadastrados\n")
+    escreva(" 3 - Quem você deseja buscar?\n")
+    escreva(" 4 - Sair do sistema\n")
 
-   escolha(opcao)
-   {
-     caso 1:
+     escreva("********************************************\n")
+     escreva("Opção desejada: ")
+     leia(opcao)
+
+     escolha(opcao)
      {
-       limpa()
-       escreva("Informe o nome do cliente:\n")
-       leia(nome_completo[quant])
-        
-      limpa()
-      escreva("Qual a idade do(a) cliente ", nome_completo[quant], ":\n")
-      leia(idade[quant])
-       
-      quant++
+        caso 1:
+       {
+          limpa()
+          escreva("Qual o nome do cliente: ")
+          leia(nome_cliente[quant])
+          nome_cliente[quant] = Texto.caixa_alta(nome_cliente[quant])
+         
+          limpa()
+          escreva("Qual a idade do(a) cliente ", nome_cliente[quant], ":")
+          leia(idade[quant])
 
-      limpa()
-       //Exibe mensagem de usuario cadastrado com sucesso
-      escreva("AVISO: Usuário cadastrado com sucesso!")
-      Util.aguarde(3000)
+          quant++
 
-      //Retorna para o menu inicio 
-      inicio()
-      pare
-       }
-    
+          limpa()
+          //Exibe mensagem de usuário cadastrado com sucesso
+          escreva("AVISO: Usuário cadastrado com sucesso!")
+          Util.aguarde(3000)
+
+        //retorna para o menu inicio
+        inicio()
+
       caso 2:
       {
       limpa()
-      limpa()
-      escreva(".**************************************.\n")
-      escreva("|          CLIENTES CADASTRO           |\n")
-      escreva("'**************************************'\n")
+      escreva(".******************************************.\n")
+      escreva("|            CLIENTES  CADASTRO           |\n")
+      escreva(".******************************************.\n")  
 
       para(n = 0; n < quant; n++)
-
       {
-         escreva("N - : ",n+1, " - ", nome_completo[n], " - Idade: ", idade[n], "\n")
+        escreva("N°:", n+1, " - ", nome_cliente[n], "- idade: ", idade[n], "\n")
       }
-
-      escreva("*****************************")
-      Util.aguarde(3000) //Aguarde 03 segundos
+ 
+      escreva("********************************************\n\n")
+      Util.aguarde(3000) //aguarde 05 segundos
       inicio()
-         quant++
-        pare  
-
-
-      caso 3:
+     
+      }
+      caso 3 
       {
-
         limpa()
-        se(o nome do cliente == "Samuel")
-        {
-          escreva("Meu nome é Samuel!")
+        achei = 0 //reseto a variável achei para limpar a pesquisa e funcionalidades
+        escreva("Escreva o nome de quem você deseja buscar:\n")
+        leia(termo)
+        limpa()
+
+        escreva("***************************************\n")
+        escreva("         RESULTADO DA PESQUISA     \n")
+        escreva("***************************************\n")
+        
+
+
+        para(n = 0; n < quant; n++)
+        { 
+          se(nome_cliente[n] == termo)
+          {
+            achei = 1
+            escreva("O ", nome_cliente[n], " está na posição ",  n+1)
+          }
+
         }
-        senao
+
+        se(achei == 0)
         {
-          escreva("O nome nao foi reconhecido!")
+          limpa()
+          escreva("ATENÇÃO! Nenhum usuário foi encontrado na base de dados!")
         }
 
-
-
-
-      pare
+        escreva("\n\n********************************************\n\n")
+        Util.aguarde(3000) //aguarde 05 segundos
+        inicio()
+        pare
 
       }
+
+
+
+      caso 4
+      {
+      limpa()
+      escreva("saindo do sistema em 05 segundos . . .")
+      Util.aguarde(1000)
+
+      limpa()
+      escreva("saindo do sistema em 04 segundos . . .")
+      Util.aguarde(1000)
+
+      limpa()
+      escreva("saindo do sistema em 03 segundos . . .")
+      Util.aguarde(1000)
+
+      limpa()
+      escreva("saindo do sistema em 02 segundos . . .")
+      Util.aguarde(1000)]
+
+      limpa()
+      escreva("saindo do sistema em 01 segundos . . .")
+      Util.aguarde(1000)
+
+      limpa()
+      escreva("Até a próxima!!! \n\n\n")
+
+        pare
       }
-     caso 4 :
-     {
-      limpa()
-      escreva("Saindo do sistema em 05 segundos . . , ")
-      Util.aguarde(800) 
-      
-      limpa()
-      escreva("Saindo do sistema em 04 segundos . . , ")
-      Util.aguarde(800)
-
-      limpa()
-      escreva("Saindo do sistema em 03 segundos . . , ")
-      Util.aguarde(800) 
-
-      limpa()
-      escreva("Saindo do sistema em 02 segundos . . , ")
-      Util.aguarde(800) 
-
-      limpa()
-      escreva("Saindo do sistema em 01 segundos . . , ")
-      Util.aguarde(800) 
-      quant++
-      limpa()
-      escreva("Até a proxima!!! \n\n\n")
-      
-}
 
     }
+   
   }
 }
